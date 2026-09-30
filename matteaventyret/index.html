@@ -138,11 +138,9 @@
     }
     .privacy-policy h2 { margin: 0 0 .6rem; font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: -.04em; }
     .privacy-policy h3 { margin: 1.6rem 0 .35rem; font-size: 1.2rem; line-height: 1.35; letter-spacing: 0; }
-    .privacy-policy .policy-language-title { margin: 0 0 .6rem; font-size: clamp(1.8rem, 4vw, 2.4rem); }
     .privacy-policy .updated { color: var(--muted); font-size: .92rem; }
     .privacy-policy .policy-english { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
     .privacy-policy .policy-return { margin-top: 2rem; }
-    .policy-language-switch { padding: 0; border: 0; background: transparent; color: var(--pine); font: inherit; text-decoration: underline; text-underline-offset: .2em; cursor: pointer; }
     .translation { margin-top: clamp(3rem, 8vw, 6rem); padding-top: clamp(2.75rem, 7vw, 5rem); border-top: 2px solid var(--line); }
     .translation .hero { padding-top: 0; }
     .translation h2.translation-title { max-width: 14ch; margin: 0; font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -.05em; }
@@ -325,10 +323,14 @@
     </div>
 
     <section id="integritet" class="privacy-policy" aria-labelledby="privacy-title">
+      <p class="eyebrow" data-i18n-sv="För vuxna" data-i18n-en="For parents and carers">För vuxna</p>
+      <h2 id="privacy-title" data-i18n-sv="Integritetspolicy" data-i18n-en="Privacy Policy">Integritetspolicy</h2>
+      <div class="language-switch" role="group" aria-label="Välj språk" data-i18n-sv="Välj språk" data-i18n-en="Select language" data-i18n-attribute="aria-label">
+        <button type="button" data-language-switch="sv" aria-pressed="true" lang="sv">Svenska</button>
+        <button type="button" data-language-switch="en" aria-pressed="false" lang="en">English</button>
+      </div>
       <div lang="sv" data-language-content="sv">
-        <p class="eyebrow">För vuxna</p>
-        <h2 id="privacy-title">Integritetspolicy</h2>
-        <p class="updated">Senast uppdaterad: 25 september 2026 · <button type="button" class="policy-language-switch" data-language-switch="en" lang="en">English ↓</button></p>
+        <p class="updated">Senast uppdaterad: 25 september 2026</p>
         <section lang="sv" aria-labelledby="policy-sv-title">
       <h3 id="policy-sv-title">Vilka uppgifter sparas?</h3>
       <p>Matteäventyret sparar uppgifter som behövs för att spelet ska fungera: spelarprofiler (visningsnamn och vald figur/färg), inställningar, banframsteg och resultat från avslutade nivåer. Uppgifterna sparas i appens lokala lagring på enheten. Appen har inga användarkonton och skickar inte dessa uppgifter till någon server.</p>
@@ -349,10 +351,8 @@
       <p>Om appens datahantering ändras uppdaterar vi denna policy och datumet ovan.</p>
     </section>
       </div>
-      <section class="policy-english" id="policy-english" lang="en" data-language-content="en" hidden aria-labelledby="policy-en-title">
-      <div class="eyebrow">English</div>
-      <h3 id="policy-en-title" class="policy-language-title">Privacy Policy</h3>
-      <p class="updated">Last updated: 25 September 2026 · <button type="button" class="policy-language-switch" data-language-switch="sv" lang="sv">Svenska ↓</button></p>
+      <section class="policy-english" id="policy-english" lang="en" data-language-content="en" hidden aria-labelledby="privacy-title">
+      <p class="updated">Last updated: 25 September 2026</p>
 
       <h3>What information is stored?</h3>
       <p>Matteäventyret stores information needed to run the game: player profiles (display name and selected character/color), settings, level progress, and completed-level results. This information is stored in the app's local storage on the device. The app has no user accounts and does not send this information to any server.</p>
