@@ -3,80 +3,378 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Integritetspolicy för Matteäventyret på svenska och engelska.">
-  <title>Integritetspolicy – Matteäventyret</title>
+  <meta name="description" content="Ett matteäventyr för barn med addition, subtraktion, multiplikation, division och jämförelser med =, &lt; och &gt; längs illustrerade stigar med olika teman.">
+  <meta name="theme-color" content="#f8f6ea">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Läroäventyren">
+  <meta property="og:title" content="Matteäventyret – matte blir ett äventyr">
+  <meta property="og:description" content="Ett matteäventyr för barn: addition, subtraktion, multiplikation, division och jämförelser med =, &lt; och &gt; längs illustrerade stigar med olika teman.">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <title>Matteäventyret – matte blir ett äventyr</title>
   <style>
-    :root { color-scheme: light; --ink: #25352f; --muted: #52645b; --green: #397557; --paper: #fbfaf6; --line: #e1e5dc; }
+    :root {
+      color-scheme: light;
+      --ink: #1d392f;
+      --muted: #4c6258;
+      --pine: #275342;
+      --paper: #f8f6ea;
+      --white: #fffdf8;
+      --line: #dbe2d7;
+      --sun: #f4bf4f;
+      --coral: #ed765d;
+      --leaf: #dcebc6;
+    }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    main { width: min(760px, calc(100% - 36px)); margin: 48px auto; padding: 38px clamp(22px, 6vw, 64px); background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: 0 18px 50px #25352f0b; }
-    header { margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
-    .eyebrow { color: var(--green); font-size: .82rem; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
-    h1 { margin: 5px 0 4px; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; letter-spacing: -.04em; }
-    h2 { margin: 30px 0 5px; font-size: 1.25rem; line-height: 1.35; }
-    p { margin: 8px 0; }
-    .updated { color: var(--muted); font-size: .92rem; }
-    a { color: var(--green); text-underline-offset: 3px; }
-    .language { display: inline-block; margin-top: 18px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--green); font-size: .9rem; font-weight: 650; text-decoration: none; }
-    .english { margin-top: 46px; padding-top: 30px; border-top: 1px solid var(--line); }
-    footer { margin-top: 38px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
-    @media (max-width: 520px) { main { margin: 18px auto; border-radius: 17px; } }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 18px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--pine); text-underline-offset: .2em; text-decoration-thickness: .08em; }
+    a:hover { text-decoration-thickness: .13em; }
+    a:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; border-radius: 4px; }
+    .skip-link {
+      position: absolute; left: 1rem; top: 1rem; z-index: 2;
+      padding: .65rem 1rem; background: var(--white); color: var(--ink);
+      border: 2px solid var(--pine); border-radius: .7rem;
+      transform: translateY(-180%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .site-header, main, .site-footer { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .site-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 1.25rem;
+      padding: 1.25rem 0;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: .65rem;
+      color: var(--ink); font-size: 1.08rem; font-weight: 800; text-decoration: none;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      display: grid; width: 2rem; height: 2rem; place-items: center;
+      background: var(--sun); border: 2px solid var(--ink); border-radius: 50%;
+      font-size: 1.1rem; line-height: 1;
+    }
+    .site-nav, .language-nav { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; }
+    .site-nav { justify-content: flex-end; }
+    .site-nav a, .language-nav a { font-size: .94rem; font-weight: 700; }
+    .language-nav { padding-left: 1rem; border-left: 1px solid var(--line); }
+    .hero {
+      display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+      align-items: center; gap: clamp(2rem, 6vw, 5rem); padding: clamp(2rem, 7vw, 5.5rem) 0;
+    }
+    .eyebrow {
+      margin: 0 0 .8rem; color: var(--pine); font-size: .84rem;
+      font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
+    }
+    h1, h2, h3 { color: var(--ink); line-height: 1.15; }
+    h1 { max-width: 13ch; margin: 0; font-size: clamp(2.8rem, 7vw, 5.2rem); letter-spacing: -.055em; }
+    .lead { max-width: 38rem; margin: 1.25rem 0; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.28rem); }
+    .status {
+      display: inline-flex; align-items: center; gap: .6rem; margin: .35rem 0 1.25rem;
+      padding: .45rem .8rem; border: 1px solid var(--line); border-radius: 999px;
+      background: var(--white); color: var(--ink); font-size: .94rem; font-weight: 750;
+    }
+    .status-dot { width: .65rem; height: .65rem; border-radius: 50%; background: var(--coral); }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem 1.25rem; }
+    .button {
+      display: inline-flex; min-height: 3.15rem; align-items: center; justify-content: center;
+      padding: .7rem 1.2rem; border: 2px solid var(--pine); border-radius: .9rem;
+      background: var(--pine); color: #fff; font-weight: 750; text-decoration: none;
+    }
+    .button:hover { background: #1d4033; }
+    .hero-art {
+      display: grid; min-height: 340px; place-items: center; overflow: hidden;
+      padding: 1.25rem; border: 1px solid var(--line); border-radius: 2rem;
+      background: linear-gradient(145deg, #e8efdb 0%, #f8edcf 100%);
+    }
+    .hero-art svg { display: block; width: min(100%, 430px); height: auto; }
+    .section { padding: clamp(2.75rem, 7vw, 5rem) 0; }
+    .section-heading { max-width: 42rem; margin-bottom: 1.7rem; }
+    .section-heading h2, .contact-copy h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.1rem); letter-spacing: -.04em; }
+    .section-heading p, .contact-copy p { color: var(--muted); }
+    .feature-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .feature-card {
+      min-height: 205px; padding: 1.4rem; border: 1px solid var(--line);
+      border-radius: 1.2rem; background: var(--white);
+    }
+    .feature-number {
+      display: grid; width: 2.45rem; height: 2.45rem; place-items: center;
+      margin-bottom: 1rem; border-radius: .75rem; background: var(--leaf);
+      color: var(--ink); font-weight: 850;
+    }
+    .feature-card:nth-child(2) .feature-number { background: #ffe4bc; }
+    .feature-card:nth-child(3) .feature-number { background: #f8d9d0; }
+    .feature-card h3 { margin: 0 0 .55rem; font-size: 1.25rem; }
+    .feature-card p { margin: 0; color: var(--muted); }
+    .contact {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr);
+      gap: 2rem; align-items: center; padding: clamp(1.5rem, 5vw, 3rem);
+      border: 1px solid var(--line); border-radius: 1.6rem; background: var(--leaf);
+    }
+    .contact-copy h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); }
+    .contact-copy p { margin-bottom: 0; }
+    .contact-links { display: grid; gap: .8rem; }
+    .contact-link {
+      display: block; padding: 1rem 1.1rem; border: 1px solid #b8c9ac;
+      border-radius: .9rem; background: var(--white); color: var(--ink);
+      font-weight: 750; text-decoration: none;
+    }
+    .contact-link span { display: block; margin-top: .2rem; color: var(--muted); font-size: .9rem; font-weight: 500; }
+    .privacy-policy {
+      margin-top: clamp(3rem, 8vw, 6rem); padding: clamp(1.5rem, 5vw, 3rem);
+      border: 1px solid var(--line); border-radius: 1.6rem; background: var(--white);
+    }
+    .privacy-policy h2 { margin: 0 0 .6rem; font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: -.04em; }
+    .privacy-policy h3 { margin: 1.6rem 0 .35rem; font-size: 1.2rem; line-height: 1.35; letter-spacing: 0; }
+    .privacy-policy .policy-language-title { margin: 0 0 .6rem; font-size: clamp(1.8rem, 4vw, 2.4rem); }
+    .privacy-policy .updated { color: var(--muted); font-size: .92rem; }
+    .privacy-policy .policy-english { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+    .privacy-policy .policy-return { margin-top: 2rem; }
+    .translation { margin-top: clamp(3rem, 8vw, 6rem); padding-top: clamp(2.75rem, 7vw, 5rem); border-top: 2px solid var(--line); }
+    .translation .hero { padding-top: 0; }
+    .translation h2.translation-title { max-width: 14ch; margin: 0; font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -.05em; }
+    .site-footer {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: .7rem 1.5rem;
+      margin-top: 3rem; padding: 1.6rem 0 2.5rem; border-top: 1px solid var(--line);
+      color: var(--muted); font-size: .92rem;
+    }
+    @media (max-width: 930px) {
+      .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      body { font-size: 17px; }
+      .site-header { align-items: flex-start; flex-direction: column; }
+      .site-nav { justify-content: flex-start; }
+      .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 2rem; }
+      .hero-art { min-height: 260px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature-card { min-height: 0; }
+      .contact { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 430px) {
+      .site-header, main, .site-footer { width: min(100% - 28px, 1120px); }
+      .site-nav { gap: .45rem .8rem; }
+      .language-nav { padding-left: 0; border-left: 0; }
+      h1 { font-size: clamp(2.55rem, 14vw, 3.6rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <div class="eyebrow">Matteäventyret</div>
-      <h1>Integritetspolicy</h1>
-      <p class="updated">Senast uppdaterad: 25 september 2026</p>
-      <a class="language" href="#english">Read in English ↓</a>
-    </header>
+  <a class="skip-link" href="#main">Hoppa till innehållet</a>
+  <header class="site-header">
+    <a class="brand" href="#svenska"><span class="brand-mark" aria-hidden="true">✦</span>Läroäventyren</a>
+    <nav class="site-nav" aria-label="Huvudnavigation">
+      <a href="#spelet">Om spelet</a>
+      <a href="#integritet">Integritet</a>
+      <a href="mailto:laroaventyren@gmail.com">Kontakt</a>
+      <span class="language-nav" role="group" aria-label="Välj språk">
+        <a href="#svenska" lang="sv">Svenska</a>
+        <a href="#english" lang="en">English</a>
+      </span>
+    </nav>
+  </header>
 
-    <section lang="sv" aria-labelledby="sv-title">
-      <h2 id="sv-title">Vilka uppgifter sparas?</h2>
+  <main id="main">
+    <div id="svenska" lang="sv">
+      <section class="hero" aria-labelledby="sv-title">
+        <div>
+          <p class="eyebrow">Matte för små äventyrare</p>
+          <h1 id="sv-title">Matte blir ett äventyr.</h1>
+          <p class="lead">Matteäventyret låter barn träna addition, subtraktion, multiplikation och division, jämföra tal med =, &lt; och &gt; och utforska illustrerade stigar med olika teman.</p>
+          <p class="status"><span class="status-dot" aria-hidden="true"></span>Spelet är på väg</p>
+          <div class="actions">
+            <a class="button" href="#spelet">Upptäck spelet</a>
+            <a href="#integritet">Läs om integritet</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 440 330" aria-hidden="true" focusable="false">
+            <path d="M66 246C105 215 103 163 160 153s63 37 120 14 42-69 93-88" fill="none" stroke="#275342" stroke-linecap="round" stroke-width="9" stroke-dasharray="2 20"/>
+            <circle cx="70" cy="244" r="15" fill="#ed765d" stroke="#1d392f" stroke-width="4"/>
+            <circle cx="375" cy="78" r="18" fill="#f4bf4f" stroke="#1d392f" stroke-width="4"/>
+            <rect x="93" y="45" width="172" height="118" rx="24" fill="#fffdf8" stroke="#1d392f" stroke-width="4" transform="rotate(-6 93 45)"/>
+            <text x="132" y="112" fill="#1d392f" font-family="system-ui, sans-serif" font-size="32" font-weight="750">3 + 4 = ?</text>
+            <rect x="222" y="176" width="130" height="94" rx="22" fill="#f4bf4f" stroke="#1d392f" stroke-width="4" transform="rotate(7 222 176)"/>
+            <text x="260" y="235" fill="#1d392f" font-family="system-ui, sans-serif" font-size="38" font-weight="800">7</text>
+            <path d="m329 127 7 14 16 2-12 10 3 16-14-8-14 8 3-16-12-10 16-2z" fill="#ed765d" stroke="#1d392f" stroke-width="3" stroke-linejoin="round"/>
+            <path d="m102 179 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" fill="#f4bf4f" stroke="#1d392f" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="286" cy="72" r="7" fill="#ed765d"/>
+            <circle cx="383" cy="227" r="7" fill="#275342"/>
+            <circle cx="53" cy="100" r="6" fill="#275342"/>
+          </svg>
+        </div>
+      </section>
+
+      <section id="spelet" class="section" aria-labelledby="sv-features-title">
+        <div class="section-heading">
+          <p class="eyebrow">Ett steg i taget</p>
+          <h2 id="sv-features-title">Räkna vidare och upptäck nästa stig.</h2>
+          <p>Matteäventyret är ett matteäventyr för iPhone och iPad, skapat för barn som vill öva i sin egen takt.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number" aria-hidden="true">1</span>
+            <h3>Fyra räknesätt</h3>
+            <p>Öva på addition, subtraktion, multiplikation och division. Division med heltalssvar finns från 9 års ålder.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number" aria-hidden="true">2</span>
+            <h3>Jämförelser med =, &lt; och &gt;</h3>
+            <p>Öva på att jämföra två tal med tre tydliga tecken i träning och banor.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number" aria-hidden="true">3</span>
+            <h3>Illustrerade stigar med olika teman</h3>
+            <p>Utforska illustrerade stigar med olika teman medan du spelar.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact section" aria-labelledby="sv-contact-title">
+        <div class="contact-copy">
+          <p class="eyebrow">För vuxna</p>
+          <h2 id="sv-contact-title">Vill du veta mer?</h2>
+          <p>Läs hur spelet hanterar uppgifter, eller hör av dig om du har en fråga.</p>
+        </div>
+        <div class="contact-links">
+          <a class="contact-link" href="#integritet">Integritetspolicy<span>Svenska och English</span></a>
+          <a class="contact-link" href="mailto:laroaventyren@gmail.com">Kontakta oss<span>laroaventyren@gmail.com</span></a>
+        </div>
+      </section>
+    </div>
+
+    <div id="english" class="translation" lang="en">
+      <section class="hero" aria-labelledby="en-title">
+        <div>
+          <p class="eyebrow">Math for young adventurers</p>
+          <h2 id="en-title" class="translation-title">Make math an adventure.</h2>
+          <p class="lead">Matteäventyret helps children practise addition, subtraction, multiplication, and division, compare numbers using =, &lt;, and &gt;, and explore illustrated trails with different themes.</p>
+          <p class="status"><span class="status-dot" aria-hidden="true"></span>The game is on its way</p>
+          <div class="actions">
+            <a class="button" href="#en-game">Discover the game</a>
+            <a href="#integritet">Read the privacy policy</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 440 330" aria-hidden="true" focusable="false">
+            <path d="M66 246C105 215 103 163 160 153s63 37 120 14 42-69 93-88" fill="none" stroke="#275342" stroke-linecap="round" stroke-width="9" stroke-dasharray="2 20"/>
+            <circle cx="70" cy="244" r="15" fill="#ed765d" stroke="#1d392f" stroke-width="4"/>
+            <circle cx="375" cy="78" r="18" fill="#f4bf4f" stroke="#1d392f" stroke-width="4"/>
+            <rect x="93" y="45" width="172" height="118" rx="24" fill="#fffdf8" stroke="#1d392f" stroke-width="4" transform="rotate(-6 93 45)"/>
+            <text x="132" y="112" fill="#1d392f" font-family="system-ui, sans-serif" font-size="32" font-weight="750">3 + 4 = ?</text>
+            <rect x="222" y="176" width="130" height="94" rx="22" fill="#f4bf4f" stroke="#1d392f" stroke-width="4" transform="rotate(7 222 176)"/>
+            <text x="260" y="235" fill="#1d392f" font-family="system-ui, sans-serif" font-size="38" font-weight="800">7</text>
+            <path d="m329 127 7 14 16 2-12 10 3 16-14-8-14 8 3-16-12-10 16-2z" fill="#ed765d" stroke="#1d392f" stroke-width="3" stroke-linejoin="round"/>
+            <path d="m102 179 5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" fill="#f4bf4f" stroke="#1d392f" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="286" cy="72" r="7" fill="#ed765d"/>
+            <circle cx="383" cy="227" r="7" fill="#275342"/>
+            <circle cx="53" cy="100" r="6" fill="#275342"/>
+          </svg>
+        </div>
+      </section>
+
+      <section id="en-game" class="section" aria-labelledby="en-features-title">
+        <div class="section-heading">
+          <p class="eyebrow">One step at a time</p>
+          <h2 id="en-features-title">Practise math and explore a new trail.</h2>
+          <p>Matteäventyret is a math adventure for iPhone and iPad, made for children to practise at their own pace.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number" aria-hidden="true">1</span>
+            <h3>Four operations</h3>
+            <p>Practise addition, subtraction, multiplication, and division. Division with whole-number answers is available from age 9.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number" aria-hidden="true">2</span>
+            <h3>Comparisons with =, &lt;, and &gt;</h3>
+            <p>Practise comparing two numbers using three clear symbols in practice and trails.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number" aria-hidden="true">3</span>
+            <h3>Themed illustrated trails</h3>
+            <p>Explore illustrated trails with different themes as you play.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact section" aria-labelledby="en-contact-title">
+        <div class="contact-copy">
+          <p class="eyebrow">For parents and carers</p>
+          <h2 id="en-contact-title">Want to know more?</h2>
+          <p>Read how the game handles information, or get in touch with a question.</p>
+        </div>
+        <div class="contact-links">
+          <a class="contact-link" href="#integritet">Privacy policy<span>Swedish and English</span></a>
+          <a class="contact-link" href="mailto:laroaventyren@gmail.com">Contact us<span>laroaventyren@gmail.com</span></a>
+        </div>
+      </section>
+    </div>
+
+    <section id="integritet" class="privacy-policy" aria-labelledby="privacy-title">
+      <div lang="sv">
+        <p class="eyebrow">För vuxna</p>
+        <h2 id="privacy-title">Integritetspolicy</h2>
+        <p class="updated">Senast uppdaterad: 25 september 2026 · <a href="#policy-english">Read in English ↓</a></p>
+        <section lang="sv" aria-labelledby="policy-sv-title">
+      <h3 id="policy-sv-title">Vilka uppgifter sparas?</h3>
       <p>Matteäventyret sparar uppgifter som behövs för att spelet ska fungera: spelarprofiler (visningsnamn och vald figur/färg), inställningar, banframsteg och resultat från avslutade nivåer. Uppgifterna sparas i appens lokala lagring på enheten. Appen har inga användarkonton och skickar inte dessa uppgifter till någon server.</p>
 
-      <h2>Analys, reklam och delning</h2>
+      <h3>Analys, reklam och delning</h3>
       <p>Appen innehåller inte annonser eller analysverktyg och delar inte spelaruppgifter med tredje part. Om iCloud-säkerhetskopiering är aktiverad kan iOS ta med appdata i enhetens säkerhetskopia enligt Apples inställningar och villkor. Det styrs av Apple, inte av Matteäventyret. <a href="https://support.apple.com/sv-se/108770">Läs mer om iCloud-säkerhetskopiering</a>.</p>
 
-      <h2>Hur länge sparas uppgifterna och hur raderas de?</h2>
+      <h3>Hur länge sparas uppgifterna och hur raderas de?</h3>
       <p>Uppgifterna finns kvar på enheten tills en profil tas bort i appen eller appen raderas. När en profil tas bort raderas den profilens lokala framsteg och resultathistorik. Om iOS har sparat uppgifterna i en säkerhetskopia kan en kopia finnas kvar där enligt Apples regler för säkerhetskopiering.</p>
 
-      <h2>Barns integritet</h2>
+      <h3>Barns integritet</h3>
       <p>Matteäventyret är utformat för barn och sparar inte barns uppgifter på våra servrar. En förälder eller vårdnadshavare bör hjälpa till att skapa profiler och gärna välja ett visningsnamn i stället för barnets fullständiga namn.</p>
 
-      <h2>Kontakt</h2>
+      <h3>Kontakt</h3>
       <p>Frågor om integritet eller denna policy? Kontakta oss på <a href="mailto:laroaventyren@gmail.com">laroaventyren@gmail.com</a>.</p>
 
-      <h2>Ändringar</h2>
+      <h3>Ändringar</h3>
       <p>Om appens datahantering ändras uppdaterar vi denna policy och datumet ovan.</p>
     </section>
-
-    <section class="english" id="english" lang="en" aria-labelledby="en-title">
+      </div>
+      <section class="policy-english" id="policy-english" lang="en" aria-labelledby="policy-en-title">
       <div class="eyebrow">English</div>
-      <h1 id="en-title">Privacy Policy</h1>
+      <h3 id="policy-en-title" class="policy-language-title">Privacy Policy</h3>
       <p class="updated">Last updated: 25 September 2026</p>
 
-      <h2>What information is stored?</h2>
+      <h3>What information is stored?</h3>
       <p>Matteäventyret stores information needed to run the game: player profiles (display name and selected character/color), settings, level progress, and completed-level results. This information is stored in the app's local storage on the device. The app has no user accounts and does not send this information to any server.</p>
 
-      <h2>Analytics, advertising, and sharing</h2>
+      <h3>Analytics, advertising, and sharing</h3>
       <p>The app does not contain advertising or analytics tools and does not share player information with third parties. If iCloud Backup is enabled, iOS may include app data in the device backup according to Apple's settings and terms. This is controlled by Apple, not Matteäventyret. <a href="https://support.apple.com/en-us/108770">Learn what iCloud Backup includes</a>.</p>
 
-      <h2>Retention and deletion</h2>
+      <h3>Retention and deletion</h3>
       <p>Information remains on the device until a profile is deleted in the app or the app is deleted. Deleting a profile removes that profile's locally stored progress and result history. If iOS has included the information in a backup, a copy may remain there under Apple's backup rules.</p>
 
-      <h2>Children's privacy</h2>
+      <h3>Children's privacy</h3>
       <p>Matteäventyret is designed for children and does not store children's information on our servers. A parent or guardian should help create profiles and may prefer a display name instead of a child's full name.</p>
 
-      <h2>Contact</h2>
+      <h3>Contact</h3>
       <p>For privacy questions or questions about this policy, contact us at <a href="mailto:laroaventyren@gmail.com">laroaventyren@gmail.com</a>.</p>
 
-      <h2>Changes</h2>
+      <h3>Changes</h3>
       <p>If the app's data practices change, we will update this policy and the date above.</p>
     </section>
+      <p class="policy-return"><a href="#svenska">← Till Matteäventyret / Back to Matteäventyret</a></p>
+    </section>
 
-    <footer><a href="../">← Matteäventyret · Back to Matteäventyret</a> · <a href="mailto:laroaventyren@gmail.com">laroaventyren@gmail.com</a></footer>
   </main>
+
+  <footer class="site-footer">
+    <span>Läroäventyren · Matteäventyret</span>
+    <a href="../ordaventyret/">Integritetspolicy för Ordäventyret</a>
+  </footer>
 </body>
 </html>
