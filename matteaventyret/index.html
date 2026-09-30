@@ -132,14 +132,6 @@
       font-weight: 750; text-decoration: none;
     }
     .contact-link span { display: block; margin-top: .2rem; color: var(--muted); font-size: .9rem; font-weight: 500; }
-    .privacy-policy {
-      margin-top: clamp(3rem, 8vw, 6rem); padding: clamp(1.5rem, 5vw, 3rem);
-      border: 1px solid var(--line); border-radius: 1.6rem; background: var(--white);
-    }
-    .privacy-policy h2 { margin: 0 0 .6rem; font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: -.04em; }
-    .privacy-policy h3 { margin: 1.6rem 0 .35rem; font-size: 1.2rem; line-height: 1.35; letter-spacing: 0; }
-    .privacy-policy .updated { color: var(--muted); font-size: .92rem; }
-    .privacy-policy .policy-return { margin-top: 2rem; }
     .translation h2.translation-title { max-width: 14ch; margin: 0; font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -.05em; }
     .site-footer {
       display: flex; justify-content: space-between; flex-wrap: wrap; gap: .7rem 1.5rem;
@@ -173,7 +165,7 @@
     <a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">✦</span>Läroäventyren</a>
     <nav class="site-nav" aria-label="Huvudnavigation" data-i18n-sv="Huvudnavigation" data-i18n-en="Main navigation" data-i18n-attribute="aria-label">
       <a href="#spelet" data-href-sv="#spelet" data-href-en="#en-game" data-i18n-sv="Om spelet" data-i18n-en="About the game">Om spelet</a>
-      <a href="#integritet" data-i18n-sv="Integritet" data-i18n-en="Privacy">Integritet</a>
+      <a href="integritetspolicy/" data-i18n-sv="Integritet" data-i18n-en="Privacy">Integritet</a>
       <a href="mailto:laroaventyren@gmail.com" data-i18n-sv="Kontakt" data-i18n-en="Contact">Kontakt</a>
       <div class="language-nav language-switch" role="group" aria-label="Välj språk" data-i18n-sv="Välj språk" data-i18n-en="Select language" data-i18n-attribute="aria-label">
         <button type="button" data-language-switch="sv" aria-pressed="true" lang="sv">Svenska</button>
@@ -192,7 +184,7 @@
           <p class="status"><span class="status-dot" aria-hidden="true"></span>Spelet är på väg</p>
           <div class="actions">
             <a class="button" href="#spelet">Upptäck spelet</a>
-            <a href="#integritet">Läs om integritet</a>
+            <a href="integritetspolicy/">Läs om integritet</a>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -245,7 +237,7 @@
           <p>Läs hur spelet hanterar uppgifter, eller hör av dig om du har en fråga.</p>
         </div>
         <div class="contact-links">
-          <a class="contact-link" href="#integritet">Integritetspolicy<span>Svenska och English</span></a>
+          <a class="contact-link" href="integritetspolicy/">Integritetspolicy<span>Svenska och English</span></a>
           <a class="contact-link" href="mailto:laroaventyren@gmail.com">Kontakta oss<span>laroaventyren@gmail.com</span></a>
         </div>
       </section>
@@ -260,7 +252,7 @@
           <p class="status"><span class="status-dot" aria-hidden="true"></span>The game is on its way</p>
           <div class="actions">
             <a class="button" href="#en-game">Discover the game</a>
-            <a href="#integritet">Read the privacy policy</a>
+            <a href="integritetspolicy/">Read the privacy policy</a>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -313,64 +305,13 @@
           <p>Read how the game handles information, or get in touch with a question.</p>
         </div>
         <div class="contact-links">
-          <a class="contact-link" href="#integritet">Privacy policy<span>Swedish and English</span></a>
+          <a class="contact-link" href="integritetspolicy/">Privacy policy<span>Swedish and English</span></a>
           <a class="contact-link" href="mailto:laroaventyren@gmail.com">Contact us<span>laroaventyren@gmail.com</span></a>
         </div>
       </section>
     </div>
 
-    <section id="integritet" class="privacy-policy" aria-labelledby="privacy-title">
-      <p class="eyebrow" data-i18n-sv="För vuxna" data-i18n-en="For parents and carers">För vuxna</p>
-      <h2 id="privacy-title" data-i18n-sv="Integritetspolicy" data-i18n-en="Privacy Policy">Integritetspolicy</h2>
-      <div class="language-switch" role="group" aria-label="Välj språk" data-i18n-sv="Välj språk" data-i18n-en="Select language" data-i18n-attribute="aria-label">
-        <button type="button" data-language-switch="sv" aria-pressed="true" lang="sv">Svenska</button>
-        <button type="button" data-language-switch="en" aria-pressed="false" lang="en">English</button>
-      </div>
-      <div lang="sv" data-language-content="sv">
-        <p class="updated">Senast uppdaterad: 25 september 2026</p>
-        <section lang="sv" aria-labelledby="policy-sv-title">
-      <h3 id="policy-sv-title">Vilka uppgifter sparas?</h3>
-      <p>Matteäventyret sparar uppgifter som behövs för att spelet ska fungera: spelarprofiler (visningsnamn och vald figur/färg), inställningar, banframsteg och resultat från avslutade nivåer. Uppgifterna sparas i appens lokala lagring på enheten. Appen har inga användarkonton och skickar inte dessa uppgifter till någon server.</p>
 
-      <h3>Analys, reklam och delning</h3>
-      <p>Appen innehåller inte annonser eller analysverktyg och delar inte spelaruppgifter med tredje part. Om iCloud-säkerhetskopiering är aktiverad kan iOS ta med appdata i enhetens säkerhetskopia enligt Apples inställningar och villkor. Det styrs av Apple, inte av Matteäventyret. <a href="https://support.apple.com/sv-se/108770">Läs mer om iCloud-säkerhetskopiering</a>.</p>
-
-      <h3>Hur länge sparas uppgifterna och hur raderas de?</h3>
-      <p>Uppgifterna finns kvar på enheten tills en profil tas bort i appen eller appen raderas. När en profil tas bort raderas den profilens lokala framsteg och resultathistorik. Om iOS har sparat uppgifterna i en säkerhetskopia kan en kopia finnas kvar där enligt Apples regler för säkerhetskopiering.</p>
-
-      <h3>Barns integritet</h3>
-      <p>Matteäventyret är utformat för barn och sparar inte barns uppgifter på våra servrar. En förälder eller vårdnadshavare bör hjälpa till att skapa profiler och gärna välja ett visningsnamn i stället för barnets fullständiga namn.</p>
-
-      <h3>Kontakt</h3>
-      <p>Frågor om integritet eller denna policy? Kontakta oss på <a href="mailto:laroaventyren@gmail.com">laroaventyren@gmail.com</a>.</p>
-
-      <h3>Ändringar</h3>
-      <p>Om appens datahantering ändras uppdaterar vi denna policy och datumet ovan.</p>
-    </section>
-      </div>
-      <section class="policy-english" id="policy-english" lang="en" data-language-content="en" hidden aria-labelledby="privacy-title">
-      <p class="updated">Last updated: 25 September 2026</p>
-
-      <h3>What information is stored?</h3>
-      <p>Matteäventyret stores information needed to run the game: player profiles (display name and selected character/color), settings, level progress, and completed-level results. This information is stored in the app's local storage on the device. The app has no user accounts and does not send this information to any server.</p>
-
-      <h3>Analytics, advertising, and sharing</h3>
-      <p>The app does not contain advertising or analytics tools and does not share player information with third parties. If iCloud Backup is enabled, iOS may include app data in the device backup according to Apple's settings and terms. This is controlled by Apple, not Matteäventyret. <a href="https://support.apple.com/en-us/108770">Learn what iCloud Backup includes</a>.</p>
-
-      <h3>Retention and deletion</h3>
-      <p>Information remains on the device until a profile is deleted in the app or the app is deleted. Deleting a profile removes that profile's locally stored progress and result history. If iOS has included the information in a backup, a copy may remain there under Apple's backup rules.</p>
-
-      <h3>Children's privacy</h3>
-      <p>Matteäventyret is designed for children and does not store children's information on our servers. A parent or guardian should help create profiles and may prefer a display name instead of a child's full name.</p>
-
-      <h3>Contact</h3>
-      <p>For privacy questions or questions about this policy, contact us at <a href="mailto:laroaventyren@gmail.com">laroaventyren@gmail.com</a>.</p>
-
-      <h3>Changes</h3>
-      <p>If the app's data practices change, we will update this policy and the date above.</p>
-    </section>
-      <p class="policy-return"><a href="#main" data-i18n-sv="← Till Matteäventyret" data-i18n-en="← Back to Matteäventyret">← Till Matteäventyret</a></p>
-    </section>
 
   </main>
 
