@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="sv">
+<html lang="sv" data-page-title-sv="Integritetspolicy – Ordäventyret" data-page-title-en="Privacy Policy – Ordäventyret" data-page-description-sv="Läs Ordäventyrets integritetspolicy på svenska." data-page-description-en="Read Ordäventyret’s privacy policy in English.">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,14 @@
     .updated, .notice { color: var(--muted); font-size: .92rem; }
     .notice { margin-top: 16px; padding: 12px 15px; background: #f3f6f1; border-left: 3px solid var(--green); border-radius: 6px; }
     a { color: var(--green); text-underline-offset: 3px; }
-    .language { display: inline-block; margin-top: 18px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--green); font-size: .9rem; font-weight: 650; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    [hidden] { display: none !important; }
+    .language-switch { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
+    .language-switch button { min-height: 2.35rem; padding: .35rem .7rem; border: 1px solid var(--green); border-radius: 999px; background: transparent; color: var(--green); font-size: .9rem; font-weight: 700; }
+    .language-switch button[aria-pressed="true"] { border-color: var(--green); background: var(--green); color: #fff; }
+    button:focus-visible { outline: 3px solid var(--coral, #ed765d); outline-offset: 3px; }
+
+
     .english { margin-top: 46px; padding-top: 30px; border-top: 1px solid var(--line); }
     footer { margin-top: 38px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
     @media (max-width: 520px) { main { margin: 18px auto; border-radius: 17px; } }
@@ -30,10 +37,13 @@
       <div class="eyebrow">Ordäventyret</div>
       <h1>Integritetspolicy</h1>
       <p class="updated">Senast uppdaterad: 25 september 2026</p>
-      <a class="language" href="#english">Read in English ↓</a>
+      <div class="language-switch" role="group" aria-label="Välj språk" data-i18n-sv="Välj språk" data-i18n-en="Select language" data-i18n-attribute="aria-label">
+        <button type="button" data-language-switch="sv" aria-pressed="true" lang="sv">Svenska</button>
+        <button type="button" data-language-switch="en" aria-pressed="false" lang="en">English</button>
+      </div>
     </header>
 
-    <section lang="sv" aria-labelledby="sv-title">
+    <section lang="sv" data-language-content="sv" aria-labelledby="sv-title">
       <h2 id="sv-title">Vilka uppgifter hanteras?</h2>
       <p>Ordäventyret sparar spelinställningar och spelutveckling lokalt på enheten. Appen har inga användarkonton och skickar inte dessa uppgifter till någon server.</p>
 
@@ -53,7 +63,7 @@
       <p>Denna text bygger på Ordäventyrets befintliga policyutkast. Utkastet anger att policyn ska granskas juridiskt före produktionslansering; den granskningen återstår.</p>
     </section>
 
-    <section class="english" id="english" lang="en" aria-labelledby="en-title">
+    <section class="english" id="english" lang="en" data-language-content="en" hidden aria-labelledby="en-title">
       <div class="eyebrow">English</div>
       <h1 id="en-title">Privacy Policy</h1>
       <p class="updated">Last updated: 25 September 2026</p>
@@ -79,5 +89,6 @@
 
     <footer><a href="../">← Ordäventyret</a> · <a href="mailto:laroaventyren@gmail.com">laroaventyren@gmail.com</a></footer>
   </main>
+  <script src="../localization.js" defer></script>
 </body>
 </html>
