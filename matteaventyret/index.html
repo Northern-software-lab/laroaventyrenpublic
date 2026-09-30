@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="sv">
+<html lang="sv" data-page-title-sv="Matteäventyret – matte blir ett äventyr" data-page-title-en="Matteäventyret – make math an adventure" data-page-description-sv="Öva addition, subtraktion, multiplikation, division och jämförelser på illustrerade stigar med olika teman." data-page-description-en="Practise addition, subtraction, multiplication, division, and comparisons on illustrated trails with different themes.">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,6 +37,13 @@
     a { color: var(--pine); text-underline-offset: .2em; text-decoration-thickness: .08em; }
     a:hover { text-decoration-thickness: .13em; }
     a:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; border-radius: 4px; }
+    button { font: inherit; cursor: pointer; }
+    [hidden] { display: none !important; }
+    .language-switch { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
+    .language-switch button { min-height: 2.35rem; padding: .35rem .7rem; border: 1px solid var(--pine, var(--green)); border-radius: 999px; background: transparent; color: var(--pine, var(--green)); font-size: .9rem; font-weight: 700; }
+    .language-switch button[aria-pressed="true"] { border-color: var(--pine, var(--green)); background: var(--pine, var(--green)); color: #fff; }
+    button:focus-visible { outline: 3px solid var(--coral, #ed765d); outline-offset: 3px; }
+
     .skip-link {
       position: absolute; left: 1rem; top: 1rem; z-index: 2;
       padding: .65rem 1rem; background: var(--white); color: var(--ink);
@@ -135,6 +142,7 @@
     .privacy-policy .updated { color: var(--muted); font-size: .92rem; }
     .privacy-policy .policy-english { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
     .privacy-policy .policy-return { margin-top: 2rem; }
+    .policy-language-switch { padding: 0; border: 0; background: transparent; color: var(--pine); font: inherit; text-decoration: underline; text-underline-offset: .2em; cursor: pointer; }
     .translation { margin-top: clamp(3rem, 8vw, 6rem); padding-top: clamp(2.75rem, 7vw, 5rem); border-top: 2px solid var(--line); }
     .translation .hero { padding-top: 0; }
     .translation h2.translation-title { max-width: 14ch; margin: 0; font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -.05em; }
@@ -168,19 +176,19 @@
   <a class="skip-link" href="#main">Hoppa till innehållet</a>
   <header class="site-header">
     <a class="brand" href="#svenska"><span class="brand-mark" aria-hidden="true">✦</span>Läroäventyren</a>
-    <nav class="site-nav" aria-label="Huvudnavigation">
-      <a href="#spelet">Om spelet</a>
-      <a href="#integritet">Integritet</a>
-      <a href="mailto:laroaventyren@gmail.com">Kontakt</a>
-      <span class="language-nav" role="group" aria-label="Välj språk">
-        <a href="#svenska" lang="sv">Svenska</a>
-        <a href="#english" lang="en">English</a>
-      </span>
+    <nav class="site-nav" aria-label="Huvudnavigation" data-i18n-sv="Huvudnavigation" data-i18n-en="Main navigation" data-i18n-attribute="aria-label">
+      <a href="#spelet" data-i18n-sv="Om spelet" data-i18n-en="About the game">Om spelet</a>
+      <a href="#integritet" data-i18n-sv="Integritet" data-i18n-en="Privacy">Integritet</a>
+      <a href="mailto:laroaventyren@gmail.com" data-i18n-sv="Kontakt" data-i18n-en="Contact">Kontakt</a>
+      <div class="language-nav language-switch" role="group" aria-label="Välj språk" data-i18n-sv="Välj språk" data-i18n-en="Select language" data-i18n-attribute="aria-label">
+        <button type="button" data-language-switch="sv" aria-pressed="true" lang="sv">Svenska</button>
+        <button type="button" data-language-switch="en" aria-pressed="false" lang="en">English</button>
+      </div>
     </nav>
   </header>
 
   <main id="main">
-    <div id="svenska" lang="sv">
+    <div id="svenska" lang="sv" data-language-content="sv">
       <section class="hero" aria-labelledby="sv-title">
         <div>
           <p class="eyebrow">Matte för små äventyrare</p>
@@ -248,7 +256,7 @@
       </section>
     </div>
 
-    <div id="english" class="translation" lang="en">
+    <div id="english" class="translation" lang="en" data-language-content="en" hidden>
       <section class="hero" aria-labelledby="en-title">
         <div>
           <p class="eyebrow">Math for young adventurers</p>
@@ -317,10 +325,10 @@
     </div>
 
     <section id="integritet" class="privacy-policy" aria-labelledby="privacy-title">
-      <div lang="sv">
+      <div lang="sv" data-language-content="sv">
         <p class="eyebrow">För vuxna</p>
         <h2 id="privacy-title">Integritetspolicy</h2>
-        <p class="updated">Senast uppdaterad: 25 september 2026 · <a href="#policy-english">Read in English ↓</a></p>
+        <p class="updated">Senast uppdaterad: 25 september 2026 · <button type="button" class="policy-language-switch" data-language-switch="en" lang="en">English ↓</button></p>
         <section lang="sv" aria-labelledby="policy-sv-title">
       <h3 id="policy-sv-title">Vilka uppgifter sparas?</h3>
       <p>Matteäventyret sparar uppgifter som behövs för att spelet ska fungera: spelarprofiler (visningsnamn och vald figur/färg), inställningar, banframsteg och resultat från avslutade nivåer. Uppgifterna sparas i appens lokala lagring på enheten. Appen har inga användarkonton och skickar inte dessa uppgifter till någon server.</p>
@@ -341,10 +349,10 @@
       <p>Om appens datahantering ändras uppdaterar vi denna policy och datumet ovan.</p>
     </section>
       </div>
-      <section class="policy-english" id="policy-english" lang="en" aria-labelledby="policy-en-title">
+      <section class="policy-english" id="policy-english" lang="en" data-language-content="en" hidden aria-labelledby="policy-en-title">
       <div class="eyebrow">English</div>
       <h3 id="policy-en-title" class="policy-language-title">Privacy Policy</h3>
-      <p class="updated">Last updated: 25 September 2026</p>
+      <p class="updated">Last updated: 25 September 2026 · <button type="button" class="policy-language-switch" data-language-switch="sv" lang="sv">Svenska ↓</button></p>
 
       <h3>What information is stored?</h3>
       <p>Matteäventyret stores information needed to run the game: player profiles (display name and selected character/color), settings, level progress, and completed-level results. This information is stored in the app's local storage on the device. The app has no user accounts and does not send this information to any server.</p>
@@ -364,14 +372,15 @@
       <h3>Changes</h3>
       <p>If the app's data practices change, we will update this policy and the date above.</p>
     </section>
-      <p class="policy-return"><a href="#svenska">← Till Matteäventyret / Back to Matteäventyret</a></p>
+      <p class="policy-return"><a href="#svenska" data-i18n-sv="← Till Matteäventyret" data-i18n-en="← Back to Matteäventyret">← Till Matteäventyret</a></p>
     </section>
 
   </main>
 
   <footer class="site-footer">
     <span>Läroäventyren · Matteäventyret</span>
-    <a href="../ordaventyret/">Integritetspolicy för Ordäventyret</a>
+    <a href="../ordaventyret/" data-i18n-sv="Integritetspolicy för Ordäventyret" data-i18n-en="Privacy policy for Ordäventyret">Integritetspolicy för Ordäventyret</a>
   </footer>
+  <script src="../localization.js" defer></script>
 </body>
 </html>
