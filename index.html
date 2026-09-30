@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="sv">
+<html lang="sv" data-page-title-sv="Läroäventyren – välj ditt äventyr" data-page-title-en="Läroäventyren – Choose an adventure" data-page-description-sv="Upptäck Matteäventyret och hitta integritetspolicyer från Läroäventyren." data-page-description-en="Discover Matteäventyret and find privacy information from Läroäventyren.">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +26,13 @@
     .site-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; }
     .brand { color: var(--ink); font-weight: 800; text-decoration: none; }
     .site-nav { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1rem; font-size: .94rem; font-weight: 700; }
+    button { font: inherit; cursor: pointer; }
+    [hidden] { display: none !important; }
+    .language-switch { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
+    .language-switch button { min-height: 2.35rem; padding: .35rem .7rem; border: 1px solid var(--pine, var(--green)); border-radius: 999px; background: transparent; color: var(--pine, var(--green)); font-size: .9rem; font-weight: 700; }
+    .language-switch button[aria-pressed="true"] { border-color: var(--pine, var(--green)); background: var(--pine, var(--green)); color: #fff; }
+    button:focus-visible { outline: 3px solid var(--coral, #ed765d); outline-offset: 3px; }
+
     .intro { padding: clamp(2rem, 7vw, 5rem) 0 2rem; }
     .eyebrow { margin: 0 0 .8rem; color: var(--pine); font-size: .84rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     h1, h2, h3 { color: var(--ink); line-height: 1.15; }
@@ -48,14 +55,17 @@
   <a class="skip-link" href="#main">Hoppa till innehållet</a>
   <header class="site-header">
     <a class="brand" href="#svenska">Läroäventyren</a>
-    <nav class="site-nav" aria-label="Huvudnavigation">
+    <nav class="site-nav" aria-label="Huvudnavigation" data-i18n-sv="Huvudnavigation" data-i18n-en="Main navigation" data-i18n-attribute="aria-label">
       <a href="matteaventyret/">Matteäventyret</a>
-      <a href="ordaventyret/">Ordäventyrets integritetspolicy</a>
-      <a href="#english" lang="en">English</a>
+      <a href="ordaventyret/" data-i18n-sv="Ordäventyrets integritetspolicy" data-i18n-en="Ordäventyret privacy policy">Ordäventyrets integritetspolicy</a>
+      <div class="language-switch" role="group" aria-label="Välj språk" data-i18n-sv="Välj språk" data-i18n-en="Select language" data-i18n-attribute="aria-label">
+        <button type="button" data-language-switch="sv" aria-pressed="true" lang="sv">Svenska</button>
+        <button type="button" data-language-switch="en" aria-pressed="false" lang="en">English</button>
+      </div>
     </nav>
   </header>
   <main id="main">
-    <section id="svenska" lang="sv" aria-labelledby="sv-title">
+    <section id="svenska" lang="sv" data-language-content="sv" aria-labelledby="sv-title">
       <div class="intro">
         <p class="eyebrow">Läroäventyren</p>
         <h1 id="sv-title">Välj ditt äventyr.</h1>
@@ -77,7 +87,7 @@
       </div>
     </section>
 
-    <section id="english" class="english" lang="en" aria-labelledby="en-title">
+    <section id="english" class="english" lang="en" data-language-content="en" hidden aria-labelledby="en-title">
       <p class="eyebrow">Läroäventyren</p>
       <h2 id="en-title">Choose an adventure.</h2>
       <p class="lead">Discover Matteäventyret and find privacy information for our apps.</p>
@@ -101,5 +111,6 @@
     <span>Läroäventyren</span>
     <a href="mailto:laroaventyren@gmail.com">laroaventyren@gmail.com</a>
   </footer>
+  <script src="localization.js" defer></script>
 </body>
 </html>
