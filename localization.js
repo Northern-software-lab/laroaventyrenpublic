@@ -44,6 +44,10 @@
       else element.textContent = value;
     }
 
+    for (const link of document.querySelectorAll("[data-href-sv][data-href-en]")) {
+      link.setAttribute("href", link.getAttribute("data-href-" + language));
+    }
+
     const suffix = language === "sv" ? "sv" : "en";
     const title = root.getAttribute("data-page-title-" + suffix);
     const description = root.getAttribute("data-page-description-" + suffix);
